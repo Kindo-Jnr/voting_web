@@ -2,30 +2,30 @@ import React, { useState } from 'react';
 import ConfirmationModal from '../components/ConfirmationModal';
 import FinalPrompt from '../components/FinalPrompt';
 
-const VotingPage = ({ onLogout }) => {
+const VotingPage = () => {
   const [selected, setSelected] = useState(null);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [showFinalPrompt, setShowFinalPrompt] = useState(false);
+  const [voted, setVoted] = useState(false);
 
   const candidates = [
     {
       id: 'alice',
-      name: 'Alice Johnson',
-      image: '/public/images/student1.jpg',
+      name: 'Dev Anthony',
+      image: '/images/student1.jpg',
       position: 'President',
       manifesto: 'Committed to transparency, unity, and student welfare.',
     },
     {
       id: 'bob',
-      name: 'Bob Smith',
-      image: '/public/images/student2.jpg',
+      name: 'Miss Nancy',
+      image: '/images/student2.jpg',
       position: 'President',
       manifesto: 'Leadership with innovation and inclusivity.',
     },
     {
       id: 'clara',
-      name: 'Clara Lee',
-      image: '/public/images/student3.jpg',
+      name: 'Dev Kindo',
+      image: '/images/student3.jpg',
       position: 'President',
       manifesto: 'Empowering students through smart policies.',
     },
@@ -33,19 +33,19 @@ const VotingPage = ({ onLogout }) => {
 
   const handleVote = () => {
     setShowConfirm(false);
-    setShowFinalPrompt(true);
+    setVoted(true);
   };
-
+  
   return (
     <div
       className="min-h-screen bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/public/images/Glass.jpg')" }}
+      style={{ backgroundImage: "url('/images/Glass.jpg')" }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 bg-black/50 backdrop-blur-sm">
-        <img src="/public/images/ubids.png" alt="School Logo" className="h-12 w-12 object-contain rounded-3xl" />
+        <img src="/images/ubids.png" alt="School Logo" className="h-12 w-12 object-contain rounded-3xl" />
         <h1 className="text-xl md:text-2xl font-display font-semibold tracking-wide uppercase">
-          SDD UBIDS
+         SDD UBIDS
         </h1>
       </div>
 
@@ -79,7 +79,7 @@ const VotingPage = ({ onLogout }) => {
             <p className="text-sm font-light text-accent text-center mb-2">{c.position}</p>
             <p className="text-sm text-black/200 leading-snug text-center">{c.manifesto}</p>
 
-            {/* Checkmark Badge */}
+            {/* Checkmark Badge for Selected */}
             {selected === c.id && (
               <div className="absolute top-4 right-4 bg-success text-black rounded-full p-2 shadow-lg">
                 <svg
@@ -109,7 +109,7 @@ const VotingPage = ({ onLogout }) => {
         </button>
       </div>
 
-      {/* Confirmation Modal */}
+      {/* Modals */}
       {showConfirm && (
         <ConfirmationModal
           candidateId={selected}
@@ -117,9 +117,7 @@ const VotingPage = ({ onLogout }) => {
           onConfirm={handleVote}
         />
       )}
-
-      {/* Final Prompt as Modal */}
-      {showFinalPrompt && <FinalPrompt onClose={onLogout} />}
+      {voted && <FinalPrompt />}
     </div>
   );
 };
