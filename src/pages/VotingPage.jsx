@@ -9,21 +9,21 @@ const VotingPage = () => {
 
   const candidates = [
     {
-      id: 'alice',
+      id: 'Anthony',
       name: 'Dev Anthony',
       image: '/images/student1.jpg',
       position: 'President',
       manifesto: 'Committed to transparency, unity, and student welfare.',
     },
     {
-      id: 'bob',
+      id: 'Nancy',
       name: 'Miss Nancy',
       image: '/images/student2.jpg',
       position: 'President',
       manifesto: 'Leadership with innovation and inclusivity.',
     },
     {
-      id: 'clara',
+      id: 'Kindo',
       name: 'Dev Kindo',
       image: '/images/student3.jpg',
       position: 'President',
@@ -117,7 +117,9 @@ const VotingPage = () => {
           onConfirm={handleVote}
         />
       )}
-      {voted && <FinalPrompt />}
+     {voted && <FinalPrompt onClose={() => window.location.reload()} />}
+
+
     </div>
   );
 };
