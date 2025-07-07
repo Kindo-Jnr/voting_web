@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
+import VotingPage from './pages/VotingPage';
+import OTPPage from './pages/OTPPage'; // Create this file if it doesn't exist
 
-const App = () => {
+function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+
   return (
-    <div>
-      <h1 className='text-7xl'>My Voting Web</h1>
-    </div>
-  )
+    <>
+      {authenticated ? (
+        <VotingPage onLogout={() => setAuthenticated(false)} />
+      ) : (
+        <OTPPage onVerify={() => setAuthenticated(true)} />
+      )}
+    </>
+  );
 }
 
-export default App
+export default App;
