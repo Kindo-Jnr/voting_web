@@ -5,18 +5,17 @@ const OTPPage = ({ onVerify }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (otp === '123456') onVerify(); // Simulated success
+    if (otp === '123456') onVerify(); // Simulated OTP verification
   };
 
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center px-4"
-      style={{ backgroundImage: "url('/images/Glass.jpg')" }} // Place your image in /public/bg-vote.jpg
+      style={{ backgroundImage: "url('/images/Glass.jpg')" }}
     >
       <form
         onSubmit={handleSubmit}
-        className="backdrop-blur-lg bg-white/10 border border-white/20 text-black p-8 rounded-2xl shadow-xl w-full max-w-md
-                   transition-all duration-300 hover:border-accent hover:shadow-[0_0_30px_#000]"
+        className="backdrop-blur-lg bg-white/10 border border-white/20 text-black p-8 rounded-2xl shadow-xl w-full max-w-md transition-all duration-300 hover:border-accent hover:shadow-[0_0_30px_#000]"
       >
         <h2 className="text-3xl font-display font-bold text-center mb-6 drop-shadow-md">
           Enter Your OTP

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import VotingPage from './pages/VotingPage';
-import OTPPage from './pages/OTPPage'; // Create this file if it doesn't exist
+import OTPPage from './pages/OTPPage';
+import VotingFlow from './pages/VotingFlow'; // <- UPDATED
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       {authenticated ? (
-        <VotingPage onLogout={() => setAuthenticated(false)} />
+        <VotingFlow onFinish={() => setAuthenticated(false)} /> // <- UPDATED PROP
       ) : (
         <OTPPage onVerify={() => setAuthenticated(true)} />
       )}
