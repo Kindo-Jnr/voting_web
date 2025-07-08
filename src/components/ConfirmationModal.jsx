@@ -3,9 +3,9 @@ import React from 'react';
 const ConfirmationModal = ({ candidateId, onCancel, onConfirm }) => {
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-xl max-w-sm w-full text-center">
+      <div className="bg-white/40 p-6 rounded-xl shadow-xl max-w-sm w-full text-center">
         <h3 className="text-xl font-semibold mb-4 text-black">Confirm your vote</h3>
-        <p className="mb-6 text-md text-gray-700">
+        <p className="mb-6 text-md text-black">
           Are you sure you want to vote for <strong>{candidateId}</strong>?
         </p>
         <div className="flex justify-center gap-4">

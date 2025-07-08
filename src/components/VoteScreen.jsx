@@ -40,7 +40,7 @@ const VoteScreen = ({ position, candidates, onConfirm }) => {
       </div>
 
       {/* Candidate Cards */}
-      <div className={`grid gap-1 place-items-center justify-center ${
+      <div className={`grid gap-10 place-items-center justify-center mx-6 ${
         candidates.length === 1
           ? 'grid-cols-1'
           : candidates.length === 2
